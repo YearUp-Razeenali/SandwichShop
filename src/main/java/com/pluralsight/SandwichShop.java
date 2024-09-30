@@ -11,28 +11,52 @@ public class SandwichShop {
         int size_option = scanner.nextInt();
         System.out.print("Please enter your age: ");
         int age = scanner.nextInt();
+        scanner.nextLine();
 
-        System.out.printf("The cost of your sandwich is: %.2f", sandwich_price(size_option,age));
+        System.out.print("Would you like your sandwich Loaded (yes/no)? ");
+        String loaded = scanner.nextLine();
+
+        System.out.printf("The cost of your sandwich is: %.2f", sandwich_price(size_option,age,loaded));
 
     }
 
-    public static float sandwich_price(int size, int age){
+    public static float sandwich_price(int size, int age, String loaded){
         float price;
-        if(size == 1){
-            if(age <= 17){
-               return price = 5.45f * .90f;
-            }else if(age > 17 && age < 65){
-                return price = 5.45f;
-            }else{
-                return price = 5.45f * .80f;
+        if(loaded.equals("yes")) {
+            if (size == 1) {
+                if (age <= 17) {
+                    return price = (5.45f + 1) * .90f;
+                } else if (age > 17 && age < 65) {
+                    return price = 5.45f + 1;
+                } else {
+                    return price = (5.45f + 1) * .80f;
+                }
+            } else {
+                if (age <= 17) {
+                    return price = (8.95f + 1.75f) * .90f;
+                } else if (age > 17 && age < 65) {
+                    return price = 8.95f + 1.75f;
+                } else {
+                    return price = (8.95f + 1.75f) * .80f;
+                }
             }
-        }else{
-            if(age <= 17){
-                return price = 8.95f * .90f;
-            }else if(age > 17 && age < 65){
-                return price = 8.95f;
-            }else{
-                return price = 8.95f * .80f;
+        }else {
+            if (size == 1) {
+                if (age <= 17) {
+                    return price = 5.45f * .90f;
+                } else if (age > 17 && age < 65) {
+                    return price = 5.45f;
+                } else {
+                    return price = 5.45f * .80f;
+                }
+            } else {
+                if (age <= 17) {
+                    return price = 8.95f * .90f;
+                } else if (age > 17 && age < 65) {
+                    return price = 8.95f;
+                } else {
+                    return price = 8.95f * .80f;
+                }
             }
         }
 
